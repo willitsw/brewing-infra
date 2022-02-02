@@ -2,16 +2,12 @@ resource "aws_lambda_function" "function" {
   function_name = var.function_name
 
   s3_bucket = var.s3_bucket_id
-  s3_key    = var.s3_bucket_object_id
+  s3_key    = "${var.function_name}.zip"
 
   runtime = "nodejs14.x"
-  handler = var.handler_route
-
-  source_code_hash = var.source_code_hash
-  layers = var.lambda_layers
+  handler = "${var.function_name}.handler"
 
   role = var.iam_role
-
   environment {
     variables = {
       environment = "production"
