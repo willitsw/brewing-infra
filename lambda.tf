@@ -16,7 +16,7 @@ module "recipe_get_by_id_lambda" {
 module "recipe_get_by_user_lambda" {
   # Edit these
   function_name = "RecipeGetByUser"
-  gateway_route = "GET /recipes/user/{id}"
+  gateway_route = "GET /recipes"
 
   # These shouldn't change probably
   source = "./modules/lambda-with-gateway"
