@@ -3,7 +3,7 @@ resource "aws_apigatewayv2_api" "lambda" {
   protocol_type = "HTTP"
   cors_configuration {
     allow_origins = ["https://www.whatalesyou.net", "https://whatalesyou.net"]
-    allow_methods = ["GET", "PUT", "DELETE"]
+    allow_methods = ["GET", "PUT", "DELETE", "POST"]
     allow_headers = ["*"]
     expose_headers = ["*"]
   }
