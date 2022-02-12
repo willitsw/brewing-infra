@@ -23,3 +23,16 @@ resource "aws_dynamodb_table" "recipe_table" {
     projection_type    = "ALL"
   }
 }
+
+resource "aws_dynamodb_table" "brew_settings_table" {
+  name             = "brew-settings"
+  hash_key         = "id"
+  billing_mode   = "PROVISIONED"
+  read_capacity  = 5
+  write_capacity = 5
+
+  attribute {
+    name = "id"
+    type = "S"
+  }
+}
