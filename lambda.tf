@@ -54,10 +54,10 @@ module "recipe_delete_lambda" {
 
 ############# BEER SETTINGS
 
-module "brew_settings_get_by_id_lambda" {
+module "brew_settings_get_lambda" {
   # Edit these
-  function_name = "BrewSettingsGetById"
-  gateway_route = "GET /brew-settings/{id}"
+  function_name = "BrewSettingsGet"
+  gateway_route = "GET /brew-settings"
 
   # These shouldn't change probably
   source = "./modules/lambda-with-gateway"
