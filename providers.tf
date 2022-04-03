@@ -23,6 +23,12 @@ terraform {
   required_version = "~> 1.0"
 }
 
+# resource "random_password" "password" {
+#   length = 20
+#   special = false
+#   override_special = "_%@"
+# }
+
 provider "aws" {
   region = var.aws_region
 }

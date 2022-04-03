@@ -8,6 +8,10 @@ resource "aws_lambda_function" "function" {
   handler = "${var.function_name}.handler"
 
   role = var.iam_role
+  # vpc_config {
+  #   subnet_ids         = ["subnet-2db26550", "subnet-2efec162", "subnet-80039deb"]
+  #   security_group_ids = ["sg-057d16d6e7c5f91c7"]
+  # }
   environment {
     variables = {
       environment = "production"
