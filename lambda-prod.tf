@@ -11,6 +11,10 @@ module "recipe_get_by_id_lambda" {
   s3_bucket_id = aws_s3_bucket.lambda_bucket.id
   api_id = aws_apigatewayv2_api.lambda.id
   api_execution_arn = aws_apigatewayv2_api.lambda.execution_arn
+  lambda_tags = {
+    Project = var.project_tag
+    Environment = var.prod_env_tag
+  }
 }
 
 module "recipe_get_by_user_lambda" {
@@ -24,6 +28,10 @@ module "recipe_get_by_user_lambda" {
   s3_bucket_id = aws_s3_bucket.lambda_bucket.id
   api_id = aws_apigatewayv2_api.lambda.id
   api_execution_arn = aws_apigatewayv2_api.lambda.execution_arn
+  lambda_tags = {
+    Project = var.project_tag
+    Environment = var.prod_env_tag
+  }
 }
 
 module "recipe_create_update_lambda" {
@@ -37,6 +45,10 @@ module "recipe_create_update_lambda" {
   s3_bucket_id = aws_s3_bucket.lambda_bucket.id
   api_id = aws_apigatewayv2_api.lambda.id
   api_execution_arn = aws_apigatewayv2_api.lambda.execution_arn
+  lambda_tags = {
+    Project = var.project_tag
+    Environment = var.prod_env_tag
+  }
 }
 
 module "recipe_delete_lambda" {
@@ -50,6 +62,10 @@ module "recipe_delete_lambda" {
   s3_bucket_id = aws_s3_bucket.lambda_bucket.id
   api_id = aws_apigatewayv2_api.lambda.id
   api_execution_arn = aws_apigatewayv2_api.lambda.execution_arn
+  lambda_tags = {
+    Project = var.project_tag
+    Environment = var.prod_env_tag
+  }
 }
 
 ############# USER
@@ -65,6 +81,10 @@ module "user_get_lambda" {
   s3_bucket_id = aws_s3_bucket.lambda_bucket.id
   api_id = aws_apigatewayv2_api.lambda.id
   api_execution_arn = aws_apigatewayv2_api.lambda.execution_arn
+  lambda_tags = {
+    Project = var.project_tag
+    Environment = var.prod_env_tag
+  }
 }
 
 module "user_create_update_lambda" {
@@ -78,4 +98,8 @@ module "user_create_update_lambda" {
   s3_bucket_id = aws_s3_bucket.lambda_bucket.id
   api_id = aws_apigatewayv2_api.lambda.id
   api_execution_arn = aws_apigatewayv2_api.lambda.execution_arn
+  lambda_tags = {
+    Project = var.project_tag
+    Environment = var.prod_env_tag
+  }
 }

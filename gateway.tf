@@ -7,12 +7,22 @@ resource "aws_apigatewayv2_api" "lambda" {
     allow_headers = ["*"]
     expose_headers = ["*"]
   }
+
+  tags = {
+    Project = var.project_tag
+    Environment = var.prod_env_tag
+  }
 }
 
 resource "aws_cloudwatch_log_group" "api_gw" {
   name = aws_apigatewayv2_api.lambda.name
 
   retention_in_days = 30
+
+  tags = {
+    Project = var.project_tag
+    Environment = var.prod_env_tag
+  }
 }
 
 resource "aws_apigatewayv2_stage" "lambda" {
@@ -37,6 +47,11 @@ resource "aws_apigatewayv2_stage" "lambda" {
       integrationErrorMessage = "$context.integrationErrorMessage"
       }
     )
+  }
+
+  tags = {
+    Project = var.project_tag
+    Environment = var.prod_env_tag
   }
 }
 

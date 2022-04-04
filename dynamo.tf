@@ -32,6 +32,11 @@ resource "aws_dynamodb_table" "recipe_table" {
       "efficiency",
     ]
   }
+
+  tags = {
+    Project = var.project_tag
+    Environment = var.prod_env_tag
+  }
 }
 
 resource "aws_dynamodb_table" "user_table" {
@@ -44,5 +49,10 @@ resource "aws_dynamodb_table" "user_table" {
   attribute {
     name = "id"
     type = "S"
+  }
+
+  tags = {
+    Project = var.project_tag
+    Environment = var.prod_env_tag
   }
 }

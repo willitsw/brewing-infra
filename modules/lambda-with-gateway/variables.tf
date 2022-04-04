@@ -26,3 +26,7 @@ variable "api_id" {
 variable "api_execution_arn" {
   description = "The execution arn of the api you want to use. Ex: aws_apigatewayv2_api.lambda.execution_arn"
 }
+
+variable "lambda_tags" {
+  description = "The tags to put on the resources"
+}

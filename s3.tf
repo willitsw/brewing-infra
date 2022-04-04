@@ -7,6 +7,10 @@ resource "aws_s3_bucket" "lambda_bucket" {
 
   acl           = "private"
   force_destroy = true
+  tags = {
+    Project = var.project_tag
+    Environment = var.prod_env_tag
+  }
 }
 
 # S3 bucket for website.
@@ -27,7 +31,10 @@ resource "aws_s3_bucket" "www_bucket" {
     error_document = "index.html"
   }
 
-  tags = var.common_tags
+  tags = {
+    Project = var.project_tag
+    Environment = var.prod_env_tag
+  }
 }
 
 # S3 bucket for redirecting non-www to www.
@@ -40,5 +47,8 @@ resource "aws_s3_bucket" "root_bucket" {
     redirect_all_requests_to = "https://www.${var.domain_name}"
   }
 
-  tags = var.common_tags
+  tags = {
+    Project = var.project_tag
+    Environment = var.prod_env_tag
+  }
 }

@@ -50,5 +50,8 @@ resource "aws_cloudfront_distribution" "www_s3_distribution" {
     minimum_protocol_version = "TLSv1.1_2016"
   }
 
-  tags = var.common_tags
+  tags = {
+    Project = var.project_tag
+    Environment = var.prod_env_tag
+  }
 }

@@ -13,6 +13,11 @@ resource "aws_iam_role" "lambda_exec" {
       }
     ]
   })
+
+  tags = {
+    Project = var.project_tag
+    Environment = var.prod_env_tag
+  }
 }
 
 resource "aws_iam_role_policy" "lambda_policy" {

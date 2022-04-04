@@ -1,6 +1,9 @@
 resource "aws_route53_zone" "main" {
   name = var.domain_name
-  tags = var.common_tags
+  tags = {
+    Project = var.project_tag
+    Environment = var.prod_env_tag
+  }
 }
 
 resource "aws_route53_record" "ns-record" {
