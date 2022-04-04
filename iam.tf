@@ -34,8 +34,12 @@ resource "aws_iam_role_policy" "lambda_policy" {
           "dynamodb:DeleteItem",
           "dynamodb:ConditionCheckItem"
         ],
-        "Resource": [aws_dynamodb_table.recipe_table.arn,
-          "${aws_dynamodb_table.recipe_table.arn}/index/*"]
+        "Resource": [
+          aws_dynamodb_table.recipe_table.arn,
+          "${aws_dynamodb_table.recipe_table.arn}/index/*",
+          aws_dynamodb_table.user_table.arn,
+          "${aws_dynamodb_table.user_table.arn}/index/*"
+        ]
       }
     ]
   })
